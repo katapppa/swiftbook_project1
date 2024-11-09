@@ -74,7 +74,7 @@ public class PeopleController {
         if (optionalPerson.isPresent()) {
             model.addAttribute("person", optionalPerson.get());
         } else {
-            return "redirect:/error";
+            return "/error";
         }
 
         return "people/edit";
