@@ -3,6 +3,7 @@ package springcourse.models;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import springcourse.models.enums.BookStatusEnum;
 
 @Data
 public class Book {
@@ -18,5 +19,7 @@ public class Book {
     @Min(value = 0, message = "Book year should be more than 0")
     private int year;
 
-    private boolean isPresent;
+    private BookStatusEnum status;
+
+    private String status_reason;
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowAll</title>
+</head>
+<body>
+
+<div th:each="book : ${books}">
+    <a th:href="@{/books/{id}(id=${book.getId()})}"
+       th:text="${book.getName() + ', ' + book.getAuthor()}">user</a>
+    <div style="display: inline-block;" th:switch="${book.getStatus().name()}">
+        <p th:case="'IDLE'" th:text="${book.getStatus()}" th:styleappend="'color: green'">D</p>
+        <p th:case="'TAKEN'" th:text="${book.getStatus()}" th:styleappend="'color: yellow'">D1</p>
+        <p th:case="'UNAVAILABLE'" th:text="${book.getStatus()}" th:styleappend="'color: red'">D2</p>
+        <p th:case="*">UNKNOWN STATUS</p>
+    </div>
+</div>
+
+<br/>
+<a href="/home">Home</a>
+</body>
+</html>
