@@ -13,10 +13,6 @@ public class MainController {
 
     @GetMapping("/home")
     public String index(Model model) {
-
-//        model.addAttribute("people", personDAO.index());
-        log.info("Мы дома");
-
         return "/home";
     }
 }

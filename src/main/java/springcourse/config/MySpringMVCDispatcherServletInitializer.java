@@ -1,6 +1,7 @@
 package springcourse.config;
 
-import jakarta.servlet.ServletContext;
+import jakarta.servlet.Filter;
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -21,8 +22,9 @@ public class MySpringMVCDispatcherServletInitializer extends AbstractAnnotationC
         return new String[] {"/"};
     }
 
-    private void registerHiddenFieldFilter(ServletContext servletContext) {
-        servletContext.addFilter("hiddenHttpMethodFilter",
-                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[] {
+                new HiddenHttpMethodFilter(), new CharacterEncodingFilter() };
     }
 }

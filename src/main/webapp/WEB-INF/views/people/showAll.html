@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowAll</title>
+</head>
+<body>
+
+<div th:each="person : ${people}">
+<!--    <p th:text="${person.getFio()}">VALUE</p>-->
+    <a th:href="@{/people/{id}(id=${person.getId()})}"
+       th:text="${person.getFio() + ', ' + person.getId()}">user</a>
+</div>
+
+<br/>
+<a href="/home">Home</a>
+<!--<p th:text="${person.getFio()}">VALUE</p>-->
+<!--<p th:text="${person.getFIO() + ', ' + person.getBirthdayyear()}">VALUE</p>-->
+<!--<p th:text="${'Email: ' + person.getEmail()}">VALUE</p>-->
+<!--<p th:text="${person.getId()}">VALUE</p>-->
+
+<!--<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>-->
+
+
+
+<!--<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">-->
+<!--    <input type="submit" value="Delete"/>-->
+<!--</form>-->
+</body>
+</html>

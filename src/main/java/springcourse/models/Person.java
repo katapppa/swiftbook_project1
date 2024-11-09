@@ -12,7 +12,7 @@ public class Person {
     @Pattern(regexp = "([A-Z]\\w+)(, [A-Z]\\w+)((, [A-Z]\\w+)|($))", message = "FIO is not valid to pattern Name, Surname, Patronymic (optional)")
     private String fio;
 
-    @Min(value = 0, message = "Age should be greater than 0")
+    @Min(value = 1900, message = "Birthday year should be greater than 1900")
     private int birthdayYear;
 
     @NotEmpty(message = "Email should not be empty")
